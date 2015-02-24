@@ -1,36 +1,32 @@
 @import 'reset';
-
 .header-row {
-	height: 2em;
-	background-color: #64FECC;
-	width:30em;
-
+  height: 2em;
+  background-color: #64fecc;
+  width: 30em;
 }
 table {
-	text-align: left;
-	width:30em;
+  text-align: left;
+  width: 30em;
 }
 .header {
-	height: 2em;
-	background-color: #F2EDF0;
-	width:30em;
+  height: 2em;
+  background-color: #f2edf0;
+  width: 30em;
 }
-
 h2 {
-	float: left;
-	padding-left: 1em;
-	margin-top: 0.5em;
-	font-weight: 900;
+  float: left;
+  padding-left: 1em;
+  margin-top: 0.5em;
+  font-weight: 900;
 }
-
 .filter-box {
-	float: right;
-	height: 2em;
-	width: 15em;
-	margin-right: 5em;
-	margin-top: 0.2em;
-	border: 1px solid #aaa;
+  float: right;
+  height: 2em;
+  width: 15em;
+  margin-right: 5em;
+  margin-top: 0.2em;
+  border: 1px solid #aaa;
 }
-div{
-	width:30em;
+div {
+  width: 30em;
 }
