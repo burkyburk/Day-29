@@ -1,0 +1,37 @@
+@import 'reset';
+.header-row {
+  height: 1.5em;
+  background-color: #64fecc;
+  width: 30em;
+}
+table {
+  text-align: left;
+  width: 30em;
+}
+.header {
+  height: 2em;
+  background-color: #f2edf0;
+  width: 30em;
+}
+tr {
+	border: 1px solid black;
+}
+th {
+	border: 1px solid black;
+}
+td {
+	border:1px solid black;
+}
+h2 {
+  float: left;
+  padding-left: 1em;
+  margin-top: 0.5em;
+  font-weight: 900;
+}
+.filter-box {
+  float: right;
+  height: 2em;
+  width: 14.3em;
+  margin-top: 0.2em;
+  border: 1px solid #aaa;
+}
