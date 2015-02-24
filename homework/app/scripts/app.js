@@ -1,3 +1,1 @@
-angular.module('basic', [
-		'basic.controllers'
-	])
+angular.module('app', ['app.controllers']); 

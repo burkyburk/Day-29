@@ -1,50 +1,43 @@
 <!doctype html>
-<html ng-app="basic" class="no-js" lang="">
+<html class="no-js" lang="">
+  <head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+	<title>Day-29 - Fancy Table</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <title>Day 29 - Fancy Table</title>
+	<link rel="stylesheet" href="styles/main.css">
+ <link rel="shortcut icon" href="images/burkycon.ico">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<script src="/bower_components/modernizr/modernizr.js"></script>
 
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="shortcut icon" href="images/burkycon.ico">
-  <script src="/bower_components/modernizr/modernizr.js"></script>
-</head>
+  </head>
+  <body ng-app="app" ng-controller="sortController">
 
-<body>
-  <div ng-controller="BasicCtrl" class="hero-unit">
-    <div class="header">
-      <h2>States</h2>
-      <input type="text" class="filter-box" ng-model="filterBox" placeholder="Filter">
-    </div>
+	<div class="header">
+		<h2> States </h2>
+		<input class="filter-box" type="text" placeholder="Filter" ng-model="filterBy">
+	</div>
+	<table>
+		<tr class="header-row">
+			<th ng-class="{ state: sBorder, abb: aBorder, link: lBorder }" ng-click="stateClick()"> State <i ng-show="stateArrow" class="fa fa-chevron-up"> </i> <i ng-hide="stateArrow" class="fa fa-chevron-down"></i></th>
+			<th ng-click="abbClick()"> Abbreviation <i ng-show="abbArrow" class="fa fa-chevron-up"> </i> <i ng-hide="abbArrow" class="fa fa-chevron-down"></i></th>
+			<th>Wiki Link </th>
+		</tr>
+		<tr ng-repeat='state in changeArray'>
+			<td> {{ state.name }} </td>
+			<td> {{ state.abbreviation }} </td>
+			<td> <a ng-href="https://en.wikipedia.org/wiki/{{ state.name }}"> {{state.name}}</a> </td>
+		</tr>
+	</table>
 
-    <table>
-      <tr class="header-row">
-        <th class="column1">Name</th>
-        <th class="column2">Abbreviation</th>
-        <th class="column3">Wikipedia Link</th>
-      </tr>
-      <tr ng-repeat="objects in states" ng-model="statesModel">
-        <td class="column1">{{ objects.name }}</td>
-        <td class="column2">{{ objects.abbreviation }}</td>
-        <td class="column3">
-          <a ng-href="http://en.wikipedia.org/wiki/{{ objects.name }}">Link</a>
-        </td>
-      </tr>
-    </table>
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/lodash/lodash.js"></script>
 
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers.js"></script>
+		<script src="scripts/services.js"></script>
 
-  </div>
-
-
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/lodash/lodash.min.js"></script>
-  <script src="/bower_components/angular/angular.min.js"></script>
-
-  <script type="text/javascript" src="scripts/services.js"></script>
-  <script type="text/javascript" src="scripts/controllers.js"></script>
-  <script type="text/javascript" src="scripts/app.js"></script>
 </body>
-
 </html>
