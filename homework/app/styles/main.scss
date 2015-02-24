@@ -1,0 +1,49 @@
+@import 'reset';
+
+.header-row {
+	height: 2em;
+	background-color: #64FECC;
+
+}
+table {
+	text-align: left;
+}
+.column1 {
+	width: 10em;
+	padding-top: 0.5em;
+	padding-left: 1em;
+}
+
+.column2 {
+	width: 10em;
+	padding-left: 1em;
+}
+
+.column3 {
+	width: 10em;
+	padding-left: 1em;
+}
+
+.header {
+	height: 2em;
+	background-color: #F2EDF0;
+}
+
+h2 {
+	float: left;
+	padding-left: 1em;
+	margin-top: 0.5em;
+	font-weight: 900;
+}
+
+.filter-box {
+	float: right;
+	height: 2em;
+	width: 15em;
+	margin-right: 5em;
+	margin-top: 0.2em;
+	border: 1px solid #aaa;
+}
+div{
+	width:30em;
+}
