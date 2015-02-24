@@ -41,11 +41,11 @@ table {
 
 .header {
   height: 2em;
-  background-color: #FFFFFF; }
+  background-color: #F5F6F1; }
 
 .header-row {
   height: 1.5em;
-  background-color: #F5F6F1;
+  background-color: #FFFFFF;
   width: 30em; }
 
 tr {
