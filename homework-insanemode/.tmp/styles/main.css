@@ -43,19 +43,14 @@ table {
   height: 2em;
   background-color: #f5f6f1; }
 
-.header-row {
-  height: 1.5em;
-  background-color: #fff;
-  width: 30em; }
-
 tr {
-  border: 1px solid black; }
+  border: 1px solid #f5f6f1; }
 
 th {
-  border: 1px solid black; }
+  border: 1px solid #f5f6f1; }
 
 td {
-  border: 1px solid black; }
+  border: 1px solid #f5f6f1; }
 
 h2 {
   float: left;

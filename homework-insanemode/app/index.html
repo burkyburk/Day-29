@@ -21,18 +21,20 @@
     <input class="filter-box" type="text" placeholder="Filter" ng-model="filterBy">
   </div>
   <table>
-    <tr class="header-row">
-      <th ng-class="{ state: sBorder, abb: aBorder, link: lBorder }" ng-click="stateClick()"> Title <i ng-show="stateArrow" class="fa fa-chevron-up"> </i> <i ng-hide="stateArrow" class="fa fa-chevron-down"></i>
+    <tr>
+      <th ng-click="click('title')"> Item <i ng-show="stateArrow" class="fa fa-chevron-up"> </i> <i ng-hide="stateArrow" class="fa fa-chevron-down"></i>
       </th>
-      <th ng-click="abbClick()"> Faves <i ng-show="abbArrow" class="fa fa-chevron-up"> </i> <i ng-hide="abbArrow" class="fa fa-chevron-down"></i>
+      <th ng-click="click('num_favorers')"> Favorites <i ng-show="abbArrow" class="fa fa-chevron-up"> </i> <i ng-hide="abbArrow" class="fa fa-chevron-down"></i>
       </th>
-      <th>Quantity </th>
-      <th>Link</th>
+      <th ng-click="click('quantity')"> Quantity <i ng-show="qntyArrow" class="fa fa-chevron-up"> </i> <i ng-hide="qntyArrow" class="fa fa-chevron-down"></i>
+      </th>
+      <th> Link </th>
     </tr>
     <tr ng-repeat='state in changeArray'>
-      <td> {{ state.name }} </td>
-      <td> {{ state.abbreviation }} </td>
-      <td> <a ng-href="https://en.wikipedia.org/wiki/{{ state.name }}"> {{state.name}}</a> </td>
+      <td ng-class-odd="'odd'" ng-class-even="'even'" class="row"> {{ state.title }} </td>
+      <td ng-class-odd="'odd'" ng-class-even="'even'" class="row centered"> {{ state.num_favorers }} </td>
+      <td ng-class-odd="'odd'" ng-class-even="'even'" class="row centered"> {{ state.quantity }} </td>
+      <td ng-class-odd="'odd'" ng-class-even="'even'" class="row centered"> <a ng-href="{{ state.url }}"> Link </a> </td>
     </tr>
   </table>
 

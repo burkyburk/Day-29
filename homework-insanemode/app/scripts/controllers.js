@@ -3,67 +3,56 @@ angular.module('app.controllers', []).controller('sortController', function($sco
 
   $scope.stateList = [];
   $scope.changeArray = [];
-  $scope.abb = false;
-  $scope.alpha = false;
+  $scope.sort = false;
   $scope.filterBy = '';
   $scope.stateArrow = true;
   $scope.abbArrow = true;
-  $scope.border = null;
+  $scope.qntyArrow = true;
 
   function getRequest() {
 
-    $http.get('https://openapi.etsy.com/v2/listings/active?api_key=po7nj1cxb1mjw1lw57bij7dd')
+    $http.get('https://openapi.etsy.com/v2/listings/active?api_key=ypps3d905d69sq5j70eknf2t')
       .success(function(response) {
 
         $scope.stateList = [];
-
-        for (var i = 0; i < response.length; i++) {
-          if (response[i].name) {
-            $scope.stateList.push(response[i]);
-          }
-        }
+        $scope.stateList = response.results;
         $scope.changeArray = _.sortBy($scope.stateList, function(element) {
-          return element.name + element.abbreviation;
+          return element.title.toLowerCase();
         });
       })
       .error(function(err) {
         console.log(err);
       });
   }
+
   getRequest();
 
-  $scope.stateClick = function() {
-    if ($scope.alpha) {
-      $scope.changeArray = _.sortBy($scope.stateList, function(element) {
-        $scope.alpha = false;
-        return element.name + element.abbreviation;
+  $scope.$watch('filterBy', function() {
+    if ($scope.filterBy === '') {
+      $scope.changeArray = _.filter($scope.stateList, function(element) {
+        return element.title.toLowerCase().indexOf($scope.filterBy.toLowerCase()) >= 0;
+      });
+    } else {
+      $scope.changeArray = _.filter($scope.stateList, function(element) {
+        return element.title.toLowerCase().indexOf($scope.filterBy.toLowerCase()) >= 0;
+      });
+    }
+  });
+
+  $scope.click = function(clicked) {
+    if ($scope.sort) {
+      $scope.changeArray = _.sortBy($scope.changeArray, function(element) {
+        $scope.sort = false;
+        if (clicked === 'title') {
+          return element[clicked].toLowerCase();
+        } else {
+          return element[clicked];
+        }
       });
     } else {
       $scope.changeArray.reverse();
-      $scope.alpha = true;
+      $scope.sort = true;
     }
     $scope.stateArrow = !$scope.stateArrow;
-    $
-
-  };
-
-  $scope.abbClick = function() {
-    if ($scope.abb) {
-      $scope.changeArray = _.sortBy($scope.stateList, function(element) {
-        $scope.abb = false;
-        return element.abbreviation + element.name;
-      });
-    } else {
-      $scope.changeArray.reverse();
-      $scope.abb = true;
-    }
-    $scope.abbArrow = !$scope.abbArrow;
-  };
-
-  $scope.$watch('filterBy', function() {
-    $scope.changeArray = _.filter($scope.stateList, function(element) {
-      return element.name.toLowerCase().indexOf($scope.filterBy.toLowerCase()) >= 0 ||
-        element.abbreviation.toLowerCase().indexOf($scope.filterBy.toLowerCase()) >= 0;
-    });
-  });
+  }
 });
